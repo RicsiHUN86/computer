@@ -4,7 +4,7 @@ using System.Data;
 
 public class Connect
 {
-    private const string connectionString = "server=localhost;database=computer;user=root;password=yourpassword";
+    private const string connectionString = "server=localhost;database=computer;user=root;password=;";
 
     public static MySqlConnection GetConnection()
     {

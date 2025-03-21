@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Data;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,28 @@ namespace computer
         public MainWindow()
         {
             InitializeComponent();
+            LoadData();
+            
         }
+        private void LoadData()
+        {
+            listbox1.Items.Clear();
+
+            var osData = Connect.GetData("SELECT * FROM OSystem");
+            listbox1.Items.Add("=== Operációsrendszerek ===");
+            foreach (DataRow row in osData.Rows)
+            {
+                listbox1.Items.Add($"{row["Id"]} - {row["Name"]}");
+            }
+
+            var compData = Connect.GetData("SELECT * FROM Comp");
+            listbox1.Items.Add("=== Számítógépek ===");
+            foreach (DataRow row in compData.Rows)
+            {
+                listbox1.Items.Add($"{row["Id"]} - {row["Brand"]} - {row["Type"]} - {row["Display"]} inch - {row["Memory"]} GB - {row["CreatedTime"]}");
+            }
+        }
+
+
     }
 }

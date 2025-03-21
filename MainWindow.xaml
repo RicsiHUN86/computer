@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000">
     <Grid>
+        <ListBox x:Name="listbox1" d:ItemsSource="{d:SampleData ItemCount=5}" Background="#FF7EE8CD" BorderBrush="#FF214FDA" FontFamily="Cascadia Mono" FontSize="13"/>
 
     </Grid>
 </Window>
