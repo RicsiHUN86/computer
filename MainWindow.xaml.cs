@@ -30,7 +30,7 @@ namespace computer
 
         private void operaciosrendszer(object sender, RoutedEventArgs e)
         {
-            string query = "SELECT Name FROM OSystem";
+            string query = "SELECT Id, Name FROM OSystem";
             DataTable table = Connect.GetData(query);
             data.ItemsSource = table.DefaultView;
         }
