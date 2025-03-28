@@ -23,7 +23,7 @@ namespace computer
         }
         private void computer(object sender, RoutedEventArgs e)
         {
-            string query = "SELECT Brand, Type, Display, Memory FROM Comp";
+            string query = "SELECT Id, Brand, Type, Display, Memory, CreatedTime FROM Comp";
             DataTable table = Connect.GetData(query);
             data.ItemsSource = table.DefaultView;
         }
