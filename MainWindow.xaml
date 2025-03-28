@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:computer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000">
+        Title="ComputerShop" Height="600" Width="1000">
     <Grid>
-        <ListBox x:Name="listbox1" d:ItemsSource="{d:SampleData ItemCount=5}" Background="#FF7EE8CD" BorderBrush="#FF214FDA" FontFamily="Cascadia Mono" FontSize="13"/>
+        <ListBox x:Name="listbox1" Background="#FF7EE8CD" BorderBrush="#FF214FDA" FontFamily="Cascadia Mono" FontSize="13" Margin="500,79,10,78"/>
+        <Menu Height="40" Width="300" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold">
+            <MenuItem Header="Számítógépek" Click="computer" HorizontalAlignment="Center" VerticalAlignment="Center"/> 
+            <MenuItem Header="Oprendszerek" Click="operaciosrendszer" HorizontalAlignment="Center" VerticalAlignment="Center"/> 
+        </Menu>
 
     </Grid>
 </Window>

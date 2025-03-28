@@ -20,27 +20,33 @@ namespace computer
         public MainWindow()
         {
             InitializeComponent();
-            LoadData();
-            
         }
-        private void LoadData()
+        private void computer(object sender, RoutedEventArgs e)
         {
-            listbox1.Items.Clear();
+            listbox1.Items.Clear(); 
 
-            var osData = Connect.GetData("SELECT * FROM OSystem");
-            listbox1.Items.Add("=== Operációsrendszerek ===");
-            foreach (DataRow row in osData.Rows)
-            {
-                listbox1.Items.Add($"{row["Id"]} - {row["Name"]}");
-            }
+            string query = "SELECT Brand, Type, Display, Memory FROM Comp";
+            DataTable table = Connect.GetData(query);
 
-            var compData = Connect.GetData("SELECT * FROM Comp");
-            listbox1.Items.Add("=== Számítógépek ===");
-            foreach (DataRow row in compData.Rows)
+            foreach (DataRow row in table.Rows)
             {
-                listbox1.Items.Add($"{row["Id"]} - {row["Brand"]} - {row["Type"]} - {row["Display"]} inch - {row["Memory"]} GB - {row["CreatedTime"]}");
+                listbox1.Items.Add($"Márka: {row["Brand"]}, Típus: {row["Type"]}, Kijelző: {row["Display"]}\" , Memória: {row["Memory"]} GB");
             }
         }
+
+        private void operaciosrendszer(object sender, RoutedEventArgs e)
+        {
+            listbox1.Items.Clear(); 
+
+            string query = "SELECT Name FROM OSystem";
+            DataTable table = Connect.GetData(query);
+
+            foreach (DataRow row in table.Rows)
+            {
+                listbox1.Items.Add($"OS: {row["Name"]}");
+            }
+        }
+
 
 
     }
