@@ -23,28 +23,16 @@ namespace computer
         }
         private void computer(object sender, RoutedEventArgs e)
         {
-            listbox1.Items.Clear(); 
-
             string query = "SELECT Brand, Type, Display, Memory FROM Comp";
             DataTable table = Connect.GetData(query);
-
-            foreach (DataRow row in table.Rows)
-            {
-                listbox1.Items.Add($"Márka: {row["Brand"]}, Típus: {row["Type"]}, Kijelző: {row["Display"]}\" , Memória: {row["Memory"]} GB");
-            }
+            data.ItemsSource = table.DefaultView;
         }
 
         private void operaciosrendszer(object sender, RoutedEventArgs e)
         {
-            listbox1.Items.Clear(); 
-
             string query = "SELECT Name FROM OSystem";
             DataTable table = Connect.GetData(query);
-
-            foreach (DataRow row in table.Rows)
-            {
-                listbox1.Items.Add($"OS: {row["Name"]}");
-            }
+            data.ItemsSource = table.DefaultView;
         }
 
 
